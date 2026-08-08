@@ -1,0 +1,8 @@
+/*
+ * Style entry for @repo/ui. Apps import this single file to get the shared
+ * design tokens AND ensure Tailwind scans this package's components for the
+ * utility classes they use.
+ */
+@import "@repo/tailwind-config/shared-styles.css";
+
+@source "./";
