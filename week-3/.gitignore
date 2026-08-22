@@ -3,5 +3,9 @@ node_modules
 dist
 .next
 *.db
+*.tsbuildinfo
+next-env.d.ts
 apps/api/data
+.env
 .env*.local
+
