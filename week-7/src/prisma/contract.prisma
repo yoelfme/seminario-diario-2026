@@ -1,0 +1,8 @@
+// use prisma-next
+
+model Talk {
+  id        Int      @id @default(autoincrement())
+  title     String
+  speaker   String
+  createdAt DateTime @default(now())
+}

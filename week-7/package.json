@@ -1,0 +1,54 @@
+{
+  "name": "week-7",
+  "private": true,
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --platform=node --format=esm --outfile=dist/server.mjs --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" --external:'@nestjs/websockets/*' --external:@nestjs/microservices --external:'@nestjs/microservices/*' --external:@nestjs/platform-socket.io --external:class-transformer --external:class-validator",
+    "composer:deploy": "prisma composer deploy module.ts",
+    "composer:destroy": "prisma composer destroy module.ts --production",
+    "composer:dev": "prisma composer dev module.ts",
+    "contract:emit": "prisma contract emit",
+    "db:init": "prisma db init",
+    "db:update": "prisma db update",
+    "db:verify": "prisma db verify",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:reset": "tsx scripts/db-reset.ts",
+    "deploy": "pnpm run build && pnpm run composer:deploy",
+    "dev": "tsx watch --env-file=.env src/main.ts",
+    "dev:composer": "pnpm run build && pnpm run composer:dev",
+    "migrate": "prisma migrate --yes",
+    "migration:plan": "prisma migration plan",
+    "migration:show": "prisma migration show",
+    "migration:status": "prisma migration status",
+    "migration:log": "prisma migration log",
+    "migration:list": "prisma migration list",
+    "start": "node --env-file=.env dist/server.mjs"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.17",
+    "@nestjs/core": "^11.1.17",
+    "@nestjs/platform-express": "^11.1.17",
+    "@prisma/composer": "0.10.0",
+    "@prisma/composer-prisma-cloud": "0.10.0",
+    "@prisma/orm-postgres": "8.0.0-rc.4",
+    "alchemy": "2.0.0-beta.67",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "pathe": "^2.0.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@prisma/cli-engine": "0.2.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.2",
+    "esbuild": "^0.28.1",
+    "prisma": "8.0.0-rc.7",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
