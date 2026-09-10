@@ -1,0 +1,15 @@
+config:
+  aws:region: us-east-1
+  aws:profile: personal
+  image-resize:srcPrefix: originals/
+  image-resize:destPrefix: resized/
+  image-resize:webpQuality: "80"
+  image-resize:maxInputPixels: "100000000"
+  image-resize:memorySize: "1536"
+  image-resize:presets: |
+    [
+      { "name": "thumb", "width": 200 },
+      { "name": "medium", "width": 800 },
+      { "name": "large", "width": 1600 }
+    ]
+encryptionsalt: v1:TSn7cdr44ms=:v1:RtsTp5/uZLCIpg4b:QJ2N1vQZ8ERbS1FL9SYBZDM55oMyvQ==

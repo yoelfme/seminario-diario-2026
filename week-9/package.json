@@ -1,0 +1,42 @@
+{
+  "name": "week-9",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Event-driven image resizing on AWS: S3 originals/ -> Lambda -> S3 resized/",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build:lambda": "tsx scripts/build-lambda.ts",
+    "preview": "pnpm build:lambda && pulumi preview",
+    "deploy:up": "pnpm build:lambda && pulumi up",
+    "deploy:down": "pulumi destroy",
+    "demo:upload": "tsx scripts/upload.ts",
+    "demo:inspect": "tsx scripts/inspect.ts",
+    "test": "vitest run",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1127.0",
+    "@pulumi/aws": "^7.44.0",
+    "@pulumi/pulumi": "^3.261.0",
+    "sharp": "^0.35.4",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.163",
+    "@types/node": "^24.7.2",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "protobufjs"
+    ]
+  }
+}

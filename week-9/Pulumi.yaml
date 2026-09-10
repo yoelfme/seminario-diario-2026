@@ -1,0 +1,14 @@
+name: image-resize
+backend:
+  url: file://.
+description: Event-driven image resizing — S3 originals/ -> Lambda -> S3 resized/
+runtime:
+  name: nodejs
+  options:
+    typescript: false
+    packagemanager: pnpm
+    nodeargs: "--import tsx"
+main: src/index.ts
+config:
+  aws:region:
+    value: us-east-1
