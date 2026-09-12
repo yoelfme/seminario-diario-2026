@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="dark"] {
+  --bg: #0a0f1a;
+  --surface: #111827;
+  --border: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #06b6d4;
+  --accent-hover: #22d3ee;
+  --on-accent: #0a0f1a;
+  --error: #f87171;
+  --success: #34d399;
+}
+
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0891b2;
+  --accent-hover: #06b6d4;
+  --on-accent: #ffffff;
+  --error: #dc2626;
+  --success: #059669;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+input,
+select,
+textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}

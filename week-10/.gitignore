@@ -1,0 +1,12 @@
+node_modules
+.turbo
+dist
+.next
+*.tsbuildinfo
+next-env.d.ts
+.env
+.env*.local
+
+# Generados por `next dev` (Next 16), no son parte del ejemplo
+apps/webapp/AGENTS.md
+apps/webapp/CLAUDE.md
